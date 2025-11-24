@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWarriors - Fight Climate Change</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2E8B57;
+            --primary-light: #3CB371;
+            --secondary: #FF6B6B;
+            --dark: #333;
+            --light: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1569163139394-de44cb54d5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Issues Section */
+        .issues {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .issue-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .issue-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .issue-content {
+            padding: 1.5rem;
+        }
+
+        /* Volunteer Form */
+        .volunteer {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .volunteer-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Hidden Bottle */
+        .mystery-bottle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 90px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .mystery-bottle:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .bottle-body {
+            fill: #8B4513;
+        }
+
+        .bottle-neck {
+            fill: #A0522D;
+        }
+
+        .bottle-cork {
+            fill: #8B6914;
+        }
+
+        .bottle-glow {
+            fill: rgba(255, 215, 0, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { opacity: 0.3; }
+            to { opacity: 0.7; }
+        }
+
+        /* Hidden Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 130px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background: #f1f1f1;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .tts-toggle {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">EcoWarriors</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#issues">Climate Issues</a></li>
+                    <li><a href="#volunteer">Take Action</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <a href="#volunteer" class="btn">Join Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Join the Fight Against Climate Change</h1>
+            <p>Together we can create a sustainable future. Join our community of eco-warriors making a real difference.</p>
+            <a href="#volunteer" class="btn">Start Making a Difference</a>
+        </div>
+    </section>
+
+    <section class="issues" id="issues">
+        <div class="container">
+            <div class="section-title">
+                <h2>Critical Climate Issues</h2>
+                <p>These are the most pressing environmental challenges we're tackling</p>
+            </div>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-img" style="background-image: url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="issue-content">
+                        <h3>Plastic Pollution</h3>
+                        <p>Join beach cleanups and reduce single-use plastic consumption in your community.</p>
+                    </div>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-img" style="background-image: url('https://images.unsplash.com/photo-1569163139394-de44cb54d5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="issue-content">
+                        <h3>Deforestation</h3>
+                        <p>Participate in tree planting initiatives and support sustainable forestry practices.</p>
+                    </div>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-img" style="background-image: url('https://images.unsplash.com/photo-1569163139394-de44cb54d5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="issue-content">
+                        <h3>Carbon Emissions</h3>
+                        <p>Advocate for renewable energy and reduce your carbon footprint through sustainable choices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="volunteer" id="volunteer">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Eco-Warriors</h2>
+                <p>Become part of the solution. Fill out this form to start your journey.</p>
+            </div>
+            <div class="volunteer-form">
+                <form id="volunteer-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Area of Interest *</label>
+                        <select id="interest" class="form-control" required>
+                            <option value="">Select an area</option>
+                            <option value="cleanup">Beach Cleanups</option>
+                            <option value="tree-planting">Tree Planting</option>
+                            <option value="education">Environmental Education</option>
+                            <option value="advocacy">Policy Advocacy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="availability">Availability *</label>
+                        <select id="availability" class="form-control" required>
+                            <option value="">Select availability</option>
+                            <option value="weekends">Weekends</option>
+                            <option value="weekdays">Weekdays</option>
+                            <option value="evenings">Evenings</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Why do you want to join? *</label>
+                        <textarea id="message" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Join Eco-Warriors</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Bottle -->
+    <div class="mystery-bottle" id="mysteryBottle">
+        <svg viewBox="0 0 60 90">
+            <defs>
+                <radialGradient id="bottleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <ellipse class="bottle-glow" cx="30" cy="75" rx="20" ry="5"/>
+            <path class="bottle-body" d="M20,20 Q20,10 30,10 Q40,10 40,20 L40,70 Q40,80 30,80 Q20,80 20,70 Z" fill="url(#bottleGradient)"/>
+            <rect class="bottle-neck" x="25" y="10" width="10" height="15" rx="2"/>
+            <rect class="bottle-cork" x="23" y="5" width="14" height="5" rx="2"/>
+            <rect x="22" y="35" width="16" height="20" rx="2" fill="#DAA520" opacity="0.8"/>
+            <text x="30" y="48" text-anchor="middle" fill="#8B0000" font-size="5" font-weight="bold">?</text>
+        </svg>
+    </div>
+
+    <!-- Hidden Chatbot -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Eco-Guardian Bot</div>
+            <button class="chatbot-close" id="closeChatbot">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm the Eco-Guardian. You found the mysterious bottle! I can help you learn about climate action and environmental protection.
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask about climate change...">
+            <button id="sendMessage">➤</button>
+        </div>
+        <button class="tts-toggle" id="ttsToggle">
+            🔊 Text-to-Speech: ON
+        </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Text-to-Speech functionality
+        const synth = window.speechSynthesis;
+        let ttsEnabled = true;
+
+        function speakText(text) {
+            if (!ttsEnabled) return;
+            synth.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            utterance.volume = 0.8;
+            synth.speak(utterance);
+        }
+
+        // Chatbot functionality
+        document.getElementById('mysteryBottle').addEventListener('click', function() {
+            document.getElementById('chatbot').style.display = 'flex';
+            speakText("Hello! I'm the Eco-Guardian. You found the mysterious bottle! I can help you learn about climate action.");
+        });
+
+        document.getElementById('closeChatbot').addEventListener('click', function() {
+            document.getElementById('chatbot').style.display = 'none';
+            synth.cancel();
+        });
+
+        document.getElementById('ttsToggle').addEventListener('click', function() {
+            ttsEnabled = !ttsEnabled;
+            this.innerHTML = ttsEnabled ? '🔊 Text-to-Speech: ON' : '🔇 Text-to-Speech: OFF';
+            if (!ttsEnabled) synth.cancel();
+        });
+
+        document.getElementById('sendMessage').addEventListener('click', sendMessage);
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, 'bot');
+                speakText(response);
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageElement.textContent = text;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            const responses = {
+                climate: [
+                    "Climate change is caused by greenhouse gas emissions. We can fight it by using renewable energy and reducing waste.",
+                    "The planet's temperature is rising due to human activities. Every small action counts in reversing this trend."
+                ],
+                plastic: [
+                    "Plastic pollution harms marine life and ecosystems. Try using reusable bags and containers.",
+                    "Over 8 million tons of plastic enter our oceans each year. Join local cleanups to make a difference."
+                ],
+                tree: [
+                    "Trees absorb CO2 and produce oxygen. Planting trees is one of the most effective ways to combat climate change.",
+                    "Deforestation contributes to 15% of all greenhouse gas emissions. Support reforestation efforts."
+                ],
+                default: [
+                    "I'm here to help you learn about environmental protection. What specific topic interests you?",
+                    "Every action matters in protecting our planet. What would you like to know about sustainability?"
+                ]
+            };
+
+            if (lowerMessage.includes('climate') || lowerMessage.includes('warming')) {
+                return responses.climate[Math.floor(Math.random() * responses.climate.length)];
+            } else if (lowerMessage.includes('plastic') || lowerMessage.includes('pollution')) {
+                return responses.plastic[Math.floor(Math.random() * responses.plastic.length)];
+            } else if (lowerMessage.includes('tree') || lowerMessage.includes('forest')) {
+                return responses.tree[Math.floor(Math.random() * responses.tree.length)];
+            } else {
+                return responses.default[Math.floor(Math.random() * responses.default.length)];
+            }
+        }
+
+        // Form submission with backend connection - FIXED VERSION
+        $(document).ready(function() {
+            $('#volunteer-form').on('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    location: $('#location').val(),
+                    interest: $('#interest').val(),
+                    availability: $('#availability').val(),
+                    message: $('#message').val()
+                };
+
+                const submitBtn = $(this).find('button[type="submit"]');
+                const originalText = submitBtn.text();
+                submitBtn.text('Submitting...').prop('disabled', true);
+
+                // Simulate form submission (replace with actual backend)
+                setTimeout(function() {
+                    alert('Thank you for joining Eco-Warriors! We will contact you soon.');
+                    $('#volunteer-form')[0].reset();
+                    submitBtn.text(originalText).prop('disabled', false);
+                }, 1500);
+
+                // If you have a real backend, use this code instead:
+                /*
+                fetch('api.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Thank you for joining Eco-Warriors! We will contact you soon.');
+                        $('#volunteer-form')[0].reset();
+                    } else {
+                        alert('Error: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Connection error. Please try again later.');
+                })
+                .finally(() => {
+                    submitBtn.text(originalText).prop('disabled', false);
+                });
+                */
+            });
+        });
+    </script>
+</body>
+</html>

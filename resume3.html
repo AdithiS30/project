@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Your Name</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #6b8cbc;
+            --light: #f5f7fa;
+            --dark: #2d3748;
+            --gray: #718096;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: var(--light);
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        h1 {
+            font-family: "Poppins", sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            gap: 8px;
+        }
+
+        /* Section Cards */
+        section {
+            background: white;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .edu-school {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Skills */
+        .skills-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #e8ecf3;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #d8deea;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            section { padding: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Adithi S</h1>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i> adithidoijode@gmail.com
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i> linkedin.com/in/Adithi S
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i> shimogga,karnataka
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Summary -->
+        <section id="summary">
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Motivated Computer Science fresher with strong skills in web development, Java, and C programming. Experienced in building web-based projects and applying problem-solving techniques to develop efficient solutions. Quick learner with a passion for technology, clean coding practices, and continuous improvement. Seeking an entry-level opportunity to contribute to software development projects while expanding my technical expertise.
+            </p>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+
+            <div class="edu-item">
+                <p class="edu-title">Bachelor of Engineering:Computer Science and Engineering<br>CGPA:8.99/10 </p>
+                <p class="edu-school"> JNN College of Engineering, Department of Management Studies, Shivamogga(2023– 2027)</p>
+            </div>
+
+          
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <div class="skills-box">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">C Programming</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">Teamwork</span>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

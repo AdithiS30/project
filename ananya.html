@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya G V - Resume</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f2f2f2;
+            transition: background-color 0.3s ease;
+        }
+
+        .resume {
+            width: 75%;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .contact {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #7f8c8d;
+        }
+
+        .section-title {
+            font-weight: bold;
+            background: #f0f0f0;
+            padding: 8px;
+            border-left: 4px solid #3498db;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-title:hover {
+            background: #e0e0e0;
+            border-left-color: #2980b9;
+        }
+
+        .section-content {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+        }
+
+        .edu-table td {
+            padding: 4px 0;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .project-details {
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .cert-table {
+            width: 100%;
+        }
+
+        .cert-table td {
+            padding: 4px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #ecf0f1;
+            border-radius: 10px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 8px;
+            background: #3498db;
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        /* Dark theme */
+        body.dark-theme {
+            background: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        body.dark-theme .resume {
+            background: #34495e;
+            border-color: #7f8c8d;
+        }
+
+        body.dark-theme .section-title {
+            background: #4a6572;
+            color: #ecf0f1;
+        }
+
+        body.dark-theme .section-title:hover {
+            background: #556f7c;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            background-color: #fffacd;
+            transition: background-color 0.5s ease;
+        }
+
+        body.dark-theme .highlight {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn" onclick="printResume()">🖨️ Print Resume</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+    <div class="resume fade-in">
+
+        <h1>Ananya G V</h1>
+
+        <div class="contact">
+            Email: <span class="email" onclick="copyToClipboard('ananyagvananya@gmail.com')">ananyagvananya@gmail.com</span> | 
+            Mobile: <span onclick="copyToClipboard('7676124958')">7676124958</span> |
+            <span onclick="copyToClipboard('LINKEDIN.COM/IN/Ananya-g-v')">LINKEDIN.COM/IN/Ananya-g-v</span> | 
+            Address: Shimogga
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="section-title" onclick="toggleSection('summary')">SUMMARY ▼</div>
+        <div class="section-content" id="summary">
+            <p>
+                Motivated and ambitious CSE student. Strong time management and communication skills,
+                coupled with a strong work ethic. Seeking opportunities to showcase technical and interpersonal
+                skills, gain experience and contribute to an organization's growth.
+            </p>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section-title" onclick="toggleSection('education')">EDUCATION ▼</div>
+        <div class="section-content" id="education">
+            <table class="edu-table">
+                <tr>
+                    <td><b>Bachelor of Engineering – CSE</b> | JNN College Engineering </td>
+                    <td align="right">CGPA-8.5 | 2023–2027</td>
+                </tr>
+                <tr>
+                    <td><b>Pre – University Course – Science</b> | Vaishnavi chethana pu college</td>
+                    <td align="right">Percentage-93.88% | 2020–2022</td>
+                </tr>
+                <tr>
+                    <td><b>SSLC</b> | Jain public School</td>
+                    <td align="right">Percentage-90.08% | 2018–2019</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CORE COMPETENCIES -->
+        <div class="section-title" onclick="toggleSection('competencies')">CORE COMPETENCIES ▼</div>
+        <div class="section-content" id="competencies">
+            <div class="skill-item">
+                <b>Programming Language:</b> 
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <b>Computer Fundamentals:</b> 
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <b>Database:</b> 
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <b>Frameworks & Tools:</b> 
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section-title" onclick="toggleSection('projects')">PROJECTS ▼</div>
+        <div class="section-content" id="projects">
+            <div class="project-item">
+                <div class="project-title" onclick="toggleProject('project1')">▶ Mini coding Project - Car Service Online Booking | Web Development</div>
+                <div class="project-details" id="project1">
+                    <ul>
+                        <li>Developed a Car Service Online Booking System enabling users to schedule service appointments, choose
+                            service types, and receive confirmation notifications.
+                        </li>
+                        <li>Implemented user-friendly interfaces using HTML, CSS, and JavaScript with backend logic for storing
+                            booking details and managing customer requests.
+                        </li>
+                        <li>Integrated validation and data management to ensure accurate booking information, improve service
+                            workflow, and enhance user experience.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title" onclick="toggleProject('project2')">▶ Web Design Project - Community Help | Developing Using HTML ,CSS and JavaScript</div>
+                <div class="project-details" id="project2">
+                    <ul>
+                        <li> Designed and developed a responsive Community Help website using HTML, CSS, and JavaScript to connect
+                            volunteers with users needing assistance, ensuring clean UI and mobile-friendly layout.
+                        </li>
+                        <li>Implemented interactive features such as dynamic forms, real-time validation, and a functional
+                            help-request submission system, improving user engagement and usability.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title" onclick="toggleProject('project3')">▶ AI Tools Exploration | Explored Presenti.ai tool</div>
+                <div class="project-details" id="project3">
+                    <ul>
+                        <li>Explored Presenti.ai to generate AI-powered presentations, converting text and ideas into structured,
+                            visually appealing slides.
+                        </li>
+                        <li>Used AI features for automated design and content optimization, improving presentation quality and
+                            reducing manual creation time.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section-title" onclick="toggleSection('certifications')">CERTIFICATIONS ▼</div>
+        <div class="section-content" id="certifications">
+            <table class="cert-table">
+                <tr>
+                    <td>Math Olympiad</td>
+                    <td align="right">22nd April 2023</td>
+                </tr>
+                <tr>
+                    <td>Natural Language Processing (NLP)Tools</td>
+                    <td align="right">24th May 2024</td>
+                </tr>
+                <tr>
+                    <td>Introduction to Cloud Computing</td>
+                    <td align="right">23rd April 2025</td>
+                </tr>
+                <tr>
+                    <td>Internet Of Things</td>
+                    <td align="right">1st November 2025</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- STRENGTHS -->
+        <div class="section-title" onclick="toggleSection('strengths')">STRENGTHS ▼</div>
+        <div class="section-content" id="strengths">
+            <ul>
+                <li>Problem Solving</li>
+                <li>Web Development</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const themeBtn = document.querySelector('.theme-toggle');
+            themeBtn.textContent = document.body.classList.contains('dark-theme') ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+
+        // Print functionality
+        function printResume() {
+            window.print();
+        }
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Section toggle functionality
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const title = section.previousElementSibling;
+            
+            if (section.style.display === 'none' || !section.style.display) {
+                section.style.display = 'block';
+                title.innerHTML = title.innerHTML.replace('▶', '▼');
+            } else {
+                section.style.display = 'none';
+                title.innerHTML = title.innerHTML.replace('▼', '▶');
+            }
+        }
+
+        // Project details toggle
+        function toggleProject(projectId) {
+            const project = document.getElementById(projectId);
+            const title = project.previousElementSibling;
+            
+            if (project.style.display === 'none' || !project.style.display) {
+                project.style.display = 'block';
+                title.innerHTML = title.innerHTML.replace('▶', '▼');
+            } else {
+                project.style.display = 'none';
+                title.innerHTML = title.innerHTML.replace('▼', '▶');
+            }
+        }
+
+        // Highlight text on click
+        function highlightText(element) {
+            element.classList.add('highlight');
+            setTimeout(() => {
+                element.classList.remove('highlight');
+            }, 2000);
+        }
+
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+
+        // Initialize functionality when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click listeners to all contact info
+            const contactElements = document.querySelectorAll('.contact span');
+            contactElements.forEach(element => {
+                element.style.cursor = 'pointer';
+                element.style.textDecoration = 'underline';
+                element.addEventListener('click', function() {
+                    highlightText(this);
+                });
+            });
+
+            // Animate progress bars
+            setTimeout(animateProgressBars, 1000);
+
+            // Add smooth scrolling for better UX
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    printResume();
+                }
+                if (e.ctrlKey && e.key === 'd') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+            });
+        });
+
+        // Add current year dynamically (for future-proofing)
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            // Update any future dates if needed
+            const futureDates = document.querySelectorAll('td:contains("2025")');
+        });
+
+        // Export as PDF functionality (basic)
+        function exportAsPDF() {
+            alert('For best PDF export, use the Print function and choose "Save as PDF" in the print dialog.');
+        }
+
+        // Share resume functionality
+        function shareResume() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Ananya G V - Resume',
+                    text: 'Check out my resume',
+                    url: window.location.href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                alert('Web Share API not supported in your browser. You can copy the URL manually.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
